@@ -28,6 +28,14 @@ class ConfigurationsController extends AppController
      */
     public function index()
     {
+    	if(isset($this->request->query['category']) && !empty($this->request->query['category'])){
+    		$this->paginate['conditions']['category'] = $this->request->query['category'];
+    	}
+    	
+    	if(isset($this->request->query['name']) && !empty($this->request->query['name'])){
+    		$this->paginate['conditions']['name'] = $this->request->query['name'];
+    	}
+    	
         $configurations = $this->paginate($this->Configurations);
         $categories = array_combine(Configure::read('ConfigurationManager.categories'),Configure::read('ConfigurationManager.categories'));
 

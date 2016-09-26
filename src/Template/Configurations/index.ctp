@@ -17,7 +17,7 @@
     </ul>
 </nav>
 <div class="row collapse">
-<?= $this->Form->create() ?>
+<?= $this->Form->create(null,['type'=>'get']) ?>
 	<div class="form large-3 columns">
 		<?php echo $this->Form->input('category',['label'=>false]);?>
 	</div>
