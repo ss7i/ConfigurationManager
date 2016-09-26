@@ -44,23 +44,6 @@ class ConfigurationsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Configuration id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $configuration = $this->Configurations->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('configuration', $configuration);
-        $this->set('_serialize', ['configuration']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Network\Response|void Redirects on successful add, renders view otherwise.
