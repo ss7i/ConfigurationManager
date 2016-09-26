@@ -22,3 +22,9 @@ Configure::load('Uskur/ConfigurationManager.config');
 function configFileName(){
 	return $configFile = str_replace('.', '_', $_SERVER['SERVER_NAME']);
 }
+
+try {
+	Configure::load(configFileName());
+} catch (\Exception $e) {
+	//@todo init here
+}
