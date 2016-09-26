@@ -13,7 +13,7 @@ use Cake\Routing\Router;
 use Cake\Routing\Route\DashedRoute;
 
 Router::plugin(
-    'ConfigurationManager',
+    'Uskur/ConfigurationManager',
     ['path' => '/configuration-manager'],
     function (RouteBuilder $routes) {
         $routes->fallbacks(DashedRoute::class);

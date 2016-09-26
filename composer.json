@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ConfigurationManager\\Test\\": "tests",
+            "Uskur\\ConfigurationManager\\Test\\": "tests",
             "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
     }
