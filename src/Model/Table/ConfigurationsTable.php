@@ -93,7 +93,7 @@ class ConfigurationsTable extends Table
     
     public function install()
     {
-    	$defaults = Configure::read('ConfigurationManagement.defaults');
+    	$defaults = Configure::read('ConfigurationManager.defaults');
     	foreach($defaults as $default){
     		$configuration = $this->find('all', [
     			'conditions' => [
@@ -123,7 +123,7 @@ class ConfigurationsTable extends Table
     	foreach($configurations as $configuration){
     		Configure::write($configuration->full_name,$configuration->value);
     	}
-    	Configure::dump(configFileName(),'default',Configure::read('ConfigurationManagement.categories'));
+    	Configure::dump(configFileName(),'default',Configure::read('ConfigurationManager.categories'));
     }
     
     public function afterSave($event, $entity, $options){

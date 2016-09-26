@@ -29,7 +29,7 @@ class ConfigurationsController extends AppController
     public function index()
     {
         $configurations = $this->paginate($this->Configurations);
-        $categories = array_combine(Configure::read('ConfigurationManagement.categories'),Configure::read('ConfigurationManagement.categories'));
+        $categories = array_combine(Configure::read('ConfigurationManager.categories'),Configure::read('ConfigurationManager.categories'));
 
         $this->set(compact('configurations','categories'));
         $this->set('_serialize', ['configurations']);
@@ -70,7 +70,7 @@ class ConfigurationsController extends AppController
                 $this->Flash->error(__('The configuration could not be saved. Please, try again.'));
             }
         }
-        $categories = array_combine(Configure::read('ConfigurationManagement.categories'),Configure::read('ConfigurationManagement.categories'));
+        $categories = array_combine(Configure::read('ConfigurationManager.categories'),Configure::read('ConfigurationManager.categories'));
         $types = array_combine($this->Configurations->types, $this->Configurations->types);
         $this->set(compact('configuration','categories','types'));
         $this->set('_serialize', ['configuration']);

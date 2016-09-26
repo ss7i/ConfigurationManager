@@ -11,8 +11,8 @@
 use Cake\Core\Configure;
 
 $config = [
-    'ConfigurationManagement' => [
-        //categories to be managed by the ConfigurationManagement
+    'ConfigurationManager' => [
+        //categories to be managed by the ConfigurationManager
         'categories' => ['SampleCategory'],
         //default configuration options to be installed
         'defaults' => [

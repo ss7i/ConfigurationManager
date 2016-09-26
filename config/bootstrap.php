@@ -17,11 +17,8 @@ use Cake\Log\Log;
 use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
 
-Configure::load('ConfigurationManager.config');
+Configure::load('Uskur/ConfigurationManager.config');
 
 function configFileName(){
 	return $configFile = str_replace('.', '_', $_SERVER['SERVER_NAME']);
 }
-/*collection((array)Configure::read('Users.config'))->each(function ($file) {
-    Configure::load($file);
-});*/
