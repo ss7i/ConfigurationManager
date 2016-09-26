@@ -10,13 +10,13 @@
  */
 namespace Uskur\ConfigurationManager\Controller;
 
-use ConfigurationManager\Controller\AppController;
+use Uskur\ConfigurationManager\Controller\AppController;
 use Cake\Core\Configure;
 
 /**
  * Configurations Controller
  *
- * @property \ConfigurationManager\Model\Table\ConfigurationsTable $Configurations
+ * @property \Uskur\ConfigurationManager\Model\Table\ConfigurationsTable $Configurations
  */
 class ConfigurationsController extends AppController
 {

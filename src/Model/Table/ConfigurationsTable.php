@@ -20,13 +20,13 @@ use Cake\Core\Configure;
 /**
  * Configurations Model
  *
- * @method \ConfigurationManager\Model\Entity\Configuration get($primaryKey, $options = [])
- * @method \ConfigurationManager\Model\Entity\Configuration newEntity($data = null, array $options = [])
- * @method \ConfigurationManager\Model\Entity\Configuration[] newEntities(array $data, array $options = [])
- * @method \ConfigurationManager\Model\Entity\Configuration|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \ConfigurationManager\Model\Entity\Configuration patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \ConfigurationManager\Model\Entity\Configuration[] patchEntities($entities, array $data, array $options = [])
- * @method \ConfigurationManager\Model\Entity\Configuration findOrCreate($search, callable $callback = null)
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration get($primaryKey, $options = [])
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration newEntity($data = null, array $options = [])
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration[] newEntities(array $data, array $options = [])
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration[] patchEntities($entities, array $data, array $options = [])
+ * @method \Uskur\ConfigurationManager\Model\Entity\Configuration findOrCreate($search, callable $callback = null)
  */
 class ConfigurationsTable extends Table
 {

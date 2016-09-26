@@ -1,11 +1,11 @@
 <?php
-namespace ConfigurationManager\Test\TestCase\Controller;
+namespace Uskur\ConfigurationManager\Test\TestCase\Controller;
 
 use Cake\TestSuite\IntegrationTestCase;
-use ConfigurationManager\Controller\ConfigurationsController;
+use Uskur\ConfigurationManager\Controller\ConfigurationsController;
 
 /**
- * ConfigurationManager\Controller\ConfigurationsController Test Case
+ * Uskur\ConfigurationManager\Controller\ConfigurationsController Test Case
  */
 class ConfigurationsControllerTest extends IntegrationTestCase
 {

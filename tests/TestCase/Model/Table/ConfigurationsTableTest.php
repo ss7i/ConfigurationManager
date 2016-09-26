@@ -1,12 +1,12 @@
 <?php
-namespace ConfigurationManager\Test\TestCase\Model\Table;
+namespace Uskur\ConfigurationManager\Test\TestCase\Model\Table;
 
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
-use ConfigurationManager\Model\Table\ConfigurationsTable;
+use Uskur\ConfigurationManager\Model\Table\ConfigurationsTable;
 
 /**
- * ConfigurationManager\Model\Table\ConfigurationsTable Test Case
+ * Uskur\ConfigurationManager\Model\Table\ConfigurationsTable Test Case
  */
 class ConfigurationsTableTest extends TestCase
 {
@@ -14,7 +14,7 @@ class ConfigurationsTableTest extends TestCase
     /**
      * Test subject
      *
-     * @var \ConfigurationManager\Model\Table\ConfigurationsTable
+     * @var \Uskur\ConfigurationManager\Model\Table\ConfigurationsTable
      */
     public $Configurations;
 
@@ -35,7 +35,7 @@ class ConfigurationsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Configurations') ? [] : ['className' => 'ConfigurationManager\Model\Table\ConfigurationsTable'];
+        $config = TableRegistry::exists('Configurations') ? [] : ['className' => 'Uskur\ConfigurationManager\Model\Table\ConfigurationsTable'];
         $this->Configurations = TableRegistry::get('Configurations', $config);
     }
 
