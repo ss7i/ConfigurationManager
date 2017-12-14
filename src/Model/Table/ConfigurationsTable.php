@@ -116,14 +116,16 @@ class ConfigurationsTable extends Table
     	}
     }
     
-    public function init(){
+    public function init($host = null){
     	$configurations = $this->find('all');
     	if($configurations->count()==0) $this->install();
     	$configurations = $this->find('all');
     	foreach($configurations as $configuration){
     		Configure::write($configuration->full_name,$configuration->value);
     	}
-    	Configure::dump(configFileName(),'default',Configure::read('ConfigurationManager.categories'));
+    	$host = empty($host)?configFileName():$host;
+    	
+    	Configure::dump($host,'default',Configure::read('ConfigurationManager.categories'));
     }
     
     public function afterSave($event, $entity, $options){
