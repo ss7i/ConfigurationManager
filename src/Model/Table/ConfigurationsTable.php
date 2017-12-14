@@ -123,7 +123,7 @@ class ConfigurationsTable extends Table
     	foreach($configurations as $configuration){
     		Configure::write($configuration->full_name,$configuration->value);
     	}
-    	$host = empty($host)?configFileName():$host;
+    	$host = empty($host)?configFileName():str_replace('.', '_', $host);
     	
     	Configure::dump($host,'default',Configure::read('ConfigurationManager.categories'));
     }
