@@ -121,7 +121,13 @@ class ConfigurationsTable extends Table
 		if($configurations->count()==0) $this->install();
 		$configurations = $this->find('all');
 		foreach($configurations as $configuration){
-			Configure::write($configuration->full_name,$configuration->value);
+		    if($configuration->type == 'json') {
+		        $value = json_decode($configuration->value,true);
+		    }
+		    else {
+		        $value = $configuration->value;
+		    }
+			Configure::write($configuration->full_name,$value);
 		}
 		Configure::dump(configFileName(),'default',Configure::read('ConfigurationManager.categories'));
 	}
