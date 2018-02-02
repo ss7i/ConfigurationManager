@@ -62,7 +62,7 @@ class ConfigurationsController extends AppController
     {
         $configuration = $this->Configurations->newEntity();
         if ($this->request->is('post')) {
-            $configuration = $this->Configurations->patchEntity($configuration, $this->request->data);
+            $configuration = $this->Configurations->patchEntity($configuration, $this->request->getData());
             if ($this->Configurations->save($configuration)) {
                 $this->Flash->success(__('The configuration has been saved.'));
 
@@ -90,7 +90,7 @@ class ConfigurationsController extends AppController
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $configuration = $this->Configurations->patchEntity($configuration, $this->request->data);
+            $configuration = $this->Configurations->patchEntity($configuration, $this->request->getData());
             if ($this->Configurations->save($configuration)) {
                 $this->Flash->success(__('The configuration has been saved.'));
 
