@@ -30,7 +30,7 @@ use Cake\Core\Configure;
  */
 class ConfigurationsTable extends Table
 {
-	public $types = ['text','select','boolean','number','array'];
+	public $types = ['text','select','boolean','number','array','json'];
 	
 	/**
 	 * Initialize method
