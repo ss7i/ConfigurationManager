@@ -16,6 +16,7 @@ Router::plugin(
     'Uskur/ConfigurationManager',
     ['path' => '/configuration-manager'],
     function (RouteBuilder $routes) {
+        $routes->connect('/', ['controller' => 'Configurations', 'action' => 'index']);
         $routes->fallbacks(DashedRoute::class);
     }
 );
