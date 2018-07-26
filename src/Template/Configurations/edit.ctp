@@ -42,10 +42,18 @@ $this->Html->css('Uskur/ConfigurationManager.jsoneditor.min.css', [
          <div id="jsoneditor" class="flex mb-4"></div>
          <script type="text/javascript">
             <?php $this->Html->scriptStart(array('block' => 'script')); ?>
-            
+            var options = {
+            	    mode: 'form',
+            	    modes: ['code', 'form', 'tree'], // allowed modes
+            	    onError: function (err) {
+            	      alert(err.toString());
+            	    },
+            	    onModeChange: function (newMode, oldMode) {
+            	      console.log('Mode switched from', oldMode, 'to', newMode);
+            	    }
+            	  };
             // create the editor
             var container = document.getElementById("jsoneditor");
-            var options = {};
             var editor = new JSONEditor(container, options);
             
             // set json
