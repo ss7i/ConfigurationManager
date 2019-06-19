@@ -19,26 +19,27 @@ use Cake\Routing\Router;
 
 Configure::load('Uskur/ConfigurationManager.config');
 
-function configFileName(){
-    $hostname = 'CLI';
-	if(!isset($_SERVER['SERVER_NAME'])) {
-		$hostname = Configure::read('Server.hostname');
-		if(empty($hostname)){
-		    foreach($_SERVER['argv'] as $key=>$value) {
-		        if(strpos($value, '--host') === 0) {
-		            $hostname = str_replace('--host=', '', $value);
-		            unset($_SERVER['argv'][$key]);
-		        }
-		    }
-		}
-	}
-	else{
-		$hostname = $_SERVER['SERVER_NAME'];
-	}
-	
-	return str_replace('.', '_', $hostname);
+if (!function_exists('configFileName')) {
+    function configFileName(){
+        $hostname = 'CLI';
+    	if(!isset($_SERVER['SERVER_NAME'])) {
+    		$hostname = Configure::read('Server.hostname');
+    		if(empty($hostname)){
+    		    foreach($_SERVER['argv'] as $key=>$value) {
+    		        if(strpos($value, '--host') === 0) {
+    		            $hostname = str_replace('--host=', '', $value);
+    		            unset($_SERVER['argv'][$key]);
+    		        }
+    		    }
+    		}
+    	}
+    	else{
+    		$hostname = $_SERVER['SERVER_NAME'];
+    	}
+    	
+    	return str_replace('.', '_', $hostname);
+    }
 }
-
 try {
     $fileName = configFileName();
 	Configure::load($fileName);
