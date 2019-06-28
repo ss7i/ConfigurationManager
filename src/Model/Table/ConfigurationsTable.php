@@ -42,9 +42,9 @@ class ConfigurationsTable extends Table
 	{
 		parent::initialize($config);
 		
-		$this->table('configurations');
-		$this->displayField('name');
-		$this->primaryKey('id');
+		$this->setTable('configurations');
+		$this->setDisplayField('name');
+		$this->setPrimaryKey('id');
 	}
 	
 	/**
@@ -57,36 +57,35 @@ class ConfigurationsTable extends Table
 	{
 		$validator
 		->uuid('id')
-		->allowEmpty('id', 'create');
+		->allowEmptyString('id', 'create');
 		
 		$validator
 		->requirePresence('category', 'create')
-		->notEmpty('category');
+		->allowEmptyString('category',false);
 		
 		$validator
 		->requirePresence('name', 'create')
-		->notEmpty('name');
+		->allowEmptyString('name',false);
 		
 		$validator
-		->allowEmpty('value');
+		->allowEmptyString('value',false);
 		
 		$validator
 		->boolean('editable')
-		->requirePresence('editable', 'create')
-		->notEmpty('editable');
+		->requirePresence('editable', 'create');
 		
 		$validator
-		->allowEmpty('description');
+		->allowEmptyString('description');
 		
 		$validator
 		->requirePresence('type', 'create')
-		->notEmpty('type');
+		->allowEmptyString('type',false);
 		
 		$validator
-		->allowEmpty('options');
+		->allowEmptyString('options');
 		
 		$validator
-		->allowEmpty('default_value');
+		->allowEmptyString('default_value');
 		
 		return $validator;
 	}
