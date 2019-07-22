@@ -32,22 +32,25 @@ class ConfigurationsController extends AppController
             'category' => 'ASC',
             'name' => 'ASC'
         ]);
-        
-        if ($this->request->query('category')) {
+
+        if ($this->request->getQuery('category')) {
             $query->where([
-                'category' => $this->request->query('category')
+                'category' => $this->request->getQuery('category')
             ]);
         }
-        
-        if ($this->request->query('name')) {
+
+        if ($this->request->getQuery('name')) {
             $query->where([
-                'name LIKE' => "%{$this->request->query('name')}%"
+                'name LIKE' => "%{$this->request->getQuery('name')}%"
             ]);
         }
-        
+
         $configurations = $this->paginate($query);
-        $categories = array_combine(Configure::read('ConfigurationManager.categories'), Configure::read('ConfigurationManager.categories'));
-        
+        $categories = array_combine(
+            Configure::read('ConfigurationManager.categories'),
+            Configure::read('ConfigurationManager.categories')
+        );
+
         $this->set(compact('configurations', 'categories'));
         $this->set('_serialize', [
             'configurations']);
@@ -71,9 +74,9 @@ class ConfigurationsController extends AppController
                 $this->Flash->error(__('The configuration could not be saved. Please, try again.'));
             }
         }
-        $categories = array_combine(Configure::read('ConfigurationManager.categories'),Configure::read('ConfigurationManager.categories'));
+        $categories = array_combine(Configure::read('ConfigurationManager.categories'), Configure::read('ConfigurationManager.categories'));
         $types = array_combine($this->Configurations->types, $this->Configurations->types);
-        $this->set(compact('configuration','categories','types'));
+        $this->set(compact('configuration', 'categories', 'types'));
         $this->set('_serialize', ['configuration']);
     }
 
@@ -94,7 +97,7 @@ class ConfigurationsController extends AppController
             if ($this->Configurations->save($configuration)) {
                 $this->Flash->success(__('The configuration has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' =>    'index']);
             } else {
                 $this->Flash->error(__('The configuration could not be saved. Please, try again.'));
             }
@@ -122,11 +125,11 @@ class ConfigurationsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
+
     public function install()
     {
-    	$this->Configurations->install();
-    	$this->Flash->success(__('The default configurations have been installed.'));
-    	return $this->redirect(['action'=>'index']);
+        $this->Configurations->install();
+        $this->Flash->success(__('The default configurations have been installed.'));
+        return $this->redirect(['action'=>'index']);
     }
 }
